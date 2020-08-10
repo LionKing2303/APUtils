@@ -12,7 +12,7 @@ import Foundation
 ///
 /// someDate.string(for: .birthdate)
 
-extension Date {
+public extension Date {
     
     static func - (lhs: Date, rhs: Date) -> TimeInterval {
         return lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate
