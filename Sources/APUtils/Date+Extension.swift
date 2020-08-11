@@ -156,7 +156,7 @@ public extension Date {
         return Date.formatter(for: format, timeZone: TimeZone.current).string(from: Calendar.current.startOfDay(for: yesterday))
     }
     
-    public func startOfMonth() -> Date? {
+    func startOfMonth() -> Date? {
         let currentDateComponents:DateComponents = Calendar.current.dateComponents([.year, .month], from: self)
         let startOfMonth:Date? = Calendar.current.date(from: currentDateComponents)
         return startOfMonth
@@ -174,7 +174,7 @@ public extension Date {
         return Calendar.current.date(byAdding: months, to: self)
      }
 
-    public func endOfMonth() -> Date? {
+    func endOfMonth() -> Date? {
         if let plusOneMonthDate = dateByAddingMonths(monthsToAdd: 1) {
             let plusOneMonthDateComponents = Calendar.current.dateComponents([.year, .month], from: plusOneMonthDate)
             let endOfMonth = Calendar.current.date(from: plusOneMonthDateComponents)?.addingTimeInterval(-1)
