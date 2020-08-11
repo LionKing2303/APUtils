@@ -124,6 +124,16 @@ class DateExtenstionTests: XCTestCase {
         }
     }
     
+    func test_days_in() {
+        let numberOfDays: Int = Date.days(in: 2020, and: 2)
+        XCTAssertEqual(numberOfDays,29)
+    }
+    
+    func test_wrong_days_in() {
+        let numberOfDays: Int = Date.days(in: 2020, and: 2)
+        XCTAssertNotEqual(numberOfDays,28)
+    }
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }

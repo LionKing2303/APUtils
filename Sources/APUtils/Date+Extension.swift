@@ -263,4 +263,19 @@ public extension Date {
     var commentDate: String {
         return Date.formatter(for: isThisYear ? isToday ? .timeShort : .timeMidium : .timeLong).string(from: self)
     }
+    
+    /// Days in a specific year and month for the current calendar
+    /// or any other calendar.
+    /// - Parameter year: The specified year.
+    /// - Parameter month: The specified month.
+    /// - Parameter calendar: The calendar which we are fetching from.
+    static func days(in year: Int, and month: Int, on calendar: Calendar = Calendar.current) -> Int {
+        let dateComponents: DateComponents = DateComponents(year: year, month: month)
+        if  let date = calendar.date(from: dateComponents),
+            let range = calendar.range(of: .day, in: .month, for: date) {
+                let numDays = range.count
+                return numDays
+        }
+        return 0
+    }
 }
